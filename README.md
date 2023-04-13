@@ -14,7 +14,6 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
 - [CMS](https://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Cost-Report/HospitalCostPUF)
 - [Healthdata](https://healthdata.gov/)
 
-\
 
 #### Dicionário de dados
 
@@ -27,8 +26,7 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
 |TOTCHG|Custo da internação|
 |APRDRG|Grupo de diagnóstico refinado do paciente|
 
-\
-
+---
 ### SQL - ANÁLISE EXPLORATÓRIA
 
 
@@ -41,7 +39,6 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
             GROUP BY RACE') 
 ```
 
-\
 
 2. Qual a idade média dos pacientes?
 ```{.R}
@@ -49,7 +46,6 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
             FROM dados')
 ```
 
-\
 
 3. Qual a moda da idade dos pacientes?
 ```{.R}
@@ -60,7 +56,6 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
             LIMIT 1")
 ```
 
-\
 
 4. Qual a variância da coluna idade?
 ```{.R}
@@ -75,7 +70,6 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
         FROM dados')
 ```
 
-\
 
 5. Qual o gasto total com internações hospitalares por idade?
 ```{.R}
@@ -86,7 +80,6 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
         GROUP BY AGE')
 ```
 
-\
 
 6. Qual idade gera o maior gasto total com internações hospitalares?
 ```{.R}
@@ -97,7 +90,6 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
 
 ```
 
-\
 
 7. Qual o gasto total com internações hospitalares por gênero?
 ```{.R}
@@ -108,7 +100,6 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
         GROUP BY FEMALE')
 ```
 
-\
 
 8. Qual a média de gasto com internações hospitalares por raça do paciente?
 ```{.R}
@@ -119,7 +110,6 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
         GROUP BY RACE')
 ```
 
-\
 
 9. Para pacientes acima de 10 anos, qual a média de gasto total com internações hospitalares?
 ```{.R}
@@ -131,7 +121,6 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
         GROUP BY AGE')
 ```
 
-\
 
 10. Considerando o item anterior, qual idade tem média de gastos superior a 3000?
 ```{.R}
@@ -143,9 +132,7 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
         GROUP BY AGE
         HAVING AVG(TOTCHG) > 3000')
 ```
-
-\
-
+---
 ### Análise de Regressão em R
 
 1. Qual a distribuição da idade dos pacientes que frequentam o hospital?
@@ -157,9 +144,6 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
         ylab('Contagem')
 ```
 ![dist_idade](./images/dist_idade.png)
-
-
-\
 
 2. Qual faixa etária tem o maior gasto total no hospital?
 ```{.R}
@@ -178,10 +162,6 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
 ![gasto_idade](./images/gasto_idade.png)
 
 
-
-
-\
-
 3. Qual grupo baseado em diagnóstico (APRDRG) tem o maior gasto total no hospital?
 ```{.R}
       gasto_baseado_APRDRG <- dados %>% 
@@ -190,8 +170,6 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
       gasto_baseado_APRDRG[which.max(gasto_baseado_APRDRG$TOTCHG), ]
 ```
 
-
-\
 
 4. A característica étnica do paciente tem relação com o total gasto em internações no hospital?
 
@@ -212,9 +190,6 @@ O **valor-p é maior** que 0.05. Falhamos em rejeitar a H0.
 A característica étnica do paciente **não influencia** no gasto total com internação hospitalar. \
 
 
-
-\
-
 5. A combinação de idade e gênero dos pacientes influência no gasto total em internações no hospital?
 
       Novamente usei um Teste ANOVA. \
@@ -232,8 +207,6 @@ Em ambos os casos o **valor-p é menor** que 0.05. Rejeitamos a hipótese nula.
 **Há um efeito significativo da idade e do gênero** nos custos hospitalares.
 
 
-\
-
 6. Como o tempo de permanência é o fator crucial para pacientes internados, desejamos descobrir se o tempo de permanência pode ser previsto a partir de idade, gênero e raça.
 
       Variável dependente: **LOS** \
@@ -248,8 +221,6 @@ Em ambos os casos o **valor-p é menor** que 0.05. Rejeitamos a hipótese nula.
 Valor-p *maior que 0.05* em todos os casos, logo, falhamos em rejeitar a H0.
 O tempo de internação *não pode ser previsto* a partir das variáveis independentes usadas.
 
-
-\
 
 7. Quais variáveis têm maior impacto nos custos de internação hospitalar?
 
@@ -290,9 +261,8 @@ Logo, o modelo mod_lm_custo_v3 parece ser o melhor e o usaremos para nossa concl
 ```
 Conclusão:
 
-`Como ficou evidente nos vários modelos acima, os custos dos cuidados de saúde dependem da idade, do tempo de permanência`
-`e do grupo de diagnóstico.`
-`Essas são as 3 variáveis mais relevantes para explicar e prever o gasto com internações hospitalares.`
+`Como ficou evidente nos vários modelos acima, os custos dos cuidados de saúde dependem da idade, do tempo de permanência e do grupo de diagnóstico.
+Essas são as 3 variáveis mais relevantes para explicar e prever o gasto com internações hospitalares.`
 
 ---
 Roberto Balbinotti - rbalbinotti@gmail.com - 51-92001-8268
