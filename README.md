@@ -155,7 +155,7 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
         scale_y_continuous() +
         theme(legend.position = "none")
 ```
-  Convertendo para fator temos a quantidade de pacientes por idade. \
+  Convertendo para fator temos a quantidade de pacientes por idade.
 ```{.R}
       summary(as.factor(dados$AGE))
 ```
@@ -187,7 +187,7 @@ Mini projeto proposto pela [Data Science Academy](https://www.datascienceacademy
 ```
 O **valor-p é maior** que 0.05. Falhamos em rejeitar a H0.
 
-A característica étnica do paciente **não influencia** no gasto total com internação hospitalar. \
+A característica étnica do paciente **não influencia** no gasto total com internação hospitalar.
 
 
 5. A combinação de idade e gênero dos pacientes influência no gasto total em internações no hospital?
